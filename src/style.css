@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app{
+    background-color: #E3D3E4;
+    width: 100vw;
+    height: 100vh;
+    --padx-s: 1em;    
+    --padx-l: 2em;
+
+    --pady-s: 1em;
+
+    --mx-s: 1em;
+
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--pady-s) 0 var(--pady-s) 0;
+    font-family: 'Ubuntu',
+    sans-serif;
+}
+.header-logo{
+    width: 3em;
+    margin: 0 var(--mx-s) 0 var(--mx-s);
+    height: 3em;
+
+    background-color: black;
+    border-radius: 50%;
+    padding: 5px
+}
+
+img{
+    width: 100%;
+}
+
+.content{
+    display: grid;
+    place-items: center;
+    padding: var(--padx-l) 0 var(--padx-l) 0;
+}
+
+.timer-display-wrapper{
+    width: 31rem;
+    height: 15rem;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
+    rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px,
+    rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
+    font-size: 50px;
+    font-family: 'Roboto Mono',
+    monospace;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+.timer-display-hours::after,
+.timer-display-minutes::after {
+    content: ':';
+}
+
+.timer-select-wrapper{
+    display: flex;
+    margin-top: 3rem;
+    width: 43em;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Roboto Mono',
+    monospace;
+    
+    --w: 9em;
+}
+
+.timer-select-hours, .timer-select-minutes, .timer-select-seconds{
+    width: var(--w);
+    height: 5em;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+    place-items: center;
+}
+
+.timer-select-start, .timer-select-stop{
+    width: 4em;
+    height: 4em;
+    background-color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.timer-select-start > i{
+    color: #00FFCD;
+}
+
+.timer-select-stop > i{
+    color: #ba0000;
+}
+
+
+.dropdown-menu{
+    width: var(--w);
+    height: 20em;
+    background-color: white;
+    position: absolute;
+    top: 109%;
+    display: none;
+}
+
+/* source: https://codepen.io/devstreak/pen/dMYgeO */
+.dropdown-menu::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #EFF2EF;
+}
+
+.dropdown-menu::-webkit-scrollbar {
+    width: 4px;
+    background-color: #F5F5F5;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 10px;
+}
+
+.show{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-y: scroll;
+}
+
+/* source: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.text-m{
+    font-size: 2em;
+}
+
+.dropdown-menu-option{
+    width:100%;
+    font-size: 2em;
+    text-align: center;
+}
+
+.dropdown-menu-option:hover{
+    background-color: #00FFCD;
+}
