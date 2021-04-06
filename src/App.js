@@ -73,12 +73,14 @@ function App() {
     };
 
     const startTimer = () => {
+      let _totalSec = totalSec.current;
       timer.current = setInterval(() => {
-        totalSec.current--;
-        setHours(Math.floor(totalSec.current / 3600) % 24);
-        setSeconds(totalSec.current % 60);
-        setMinutes(Math.floor(totalSec.current / 60) % 60);
-        if (totalSec.current === 0) {
+        _totalSec--;
+        setHours(Math.floor(_totalSec / 3600) % 24);
+        setMinutes(Math.floor(_totalSec / 60) % 60);
+        setSeconds(_totalSec % 60);
+        if (_totalSec === 0) {
+          totalSec.current = 0;
           stopTimer();
         }
       }, 1000);
@@ -100,7 +102,7 @@ function App() {
             ? (hours > 0 ? `${hours} Hours ` : ``) +
               (minutes > 0 ? `${minutes} Minutes ` : ``) +
               (seconds > 0 ? `${seconds} Seconds ` : ``) +
-              " have passed !!!!"
+              "have passed !!!!"
             : "Timer has been manually stopped";
         displayNotification(message);
       }
